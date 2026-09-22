@@ -1,0 +1,26 @@
+.secondaryRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.endCall {
+  height: 40px;
+  padding: 0 var(--space-5);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.endCall:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+}
+
+.endCall:disabled {
+  border-color: var(--color-rule-strong);
+  color: var(--color-ink-faint);
+}

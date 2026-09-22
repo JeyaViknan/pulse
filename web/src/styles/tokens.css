@@ -1,0 +1,67 @@
+/*
+ * Pulse design tokens.
+ *
+ * Palette follows the Review 1 deck (Mid-Century Modern, Kraft theme) so the demo and the
+ * slides read as one product. A single light theme is deliberate: the interface is designed
+ * for projection, where a warm light ground holds up better than a dark one.
+ *
+ * Movement colours were validated for colour-vision deficiency against the terracotta path:
+ * amber (down) and steel blue (up) stay distinguishable under protan, deutan and tritan
+ * simulation. Direction is also always restated with ▲ / ▼ and a signed value.
+ */
+:root {
+  /* Ground and surfaces */
+  --color-bg: #f8f6f2;
+  --color-surface: #fdfcfa;
+  --color-surface-sunken: #f1ede6;
+
+  /* Text */
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #5f574d;
+  --color-ink-faint: #756c61;
+
+  /* Lines */
+  --color-rule: #e3dcd1;
+  --color-rule-strong: #cfc5b7;
+  --color-grid: #ebe5db;
+
+  /* Brand — terracotta primary, kraft for text on the primary band */
+  --color-primary: #9c4732;
+  --color-primary-strong: #7d3928;
+  --color-primary-soft: #f2e4df;
+  --color-kraft: #dec5a6;
+  --color-kraft-light: #f1e6d6;
+
+  /* Movement */
+  --color-down: #db6720;
+  --color-down-soft: #faebd7;
+  --color-up: #2e6a9e;
+  --color-up-soft: #e3ecf4;
+
+  --color-focus: #1a1a1a;
+
+  /* Type */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --text-2xs: 0.75rem; /* 12 */
+  --text-xs: 0.8125rem; /* 13 */
+  --text-sm: 0.9375rem; /* 15 */
+  --text-md: 1.0625rem; /* 17 */
+  --text-lg: 1.25rem; /* 20 */
+  --text-xl: 1.75rem; /* 28 */
+  --text-2xl: 2.5rem; /* 40 */
+
+  --tracking-label: 0.08em;
+
+  /* Space */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --radius: 4px;
+  --header-height: 52px;
+}

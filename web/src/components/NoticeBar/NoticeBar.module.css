@@ -1,0 +1,35 @@
+/* Floats above the footer so a message never shifts the layout during a call. */
+.notice {
+  position: absolute;
+  bottom: calc(100% + var(--space-3));
+  left: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: min(640px, calc(100% - 2 * var(--space-5)));
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-rule-strong);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: 0 6px 20px rgb(26 26 26 / 0.12);
+  font-size: var(--text-sm);
+  transform: translateX(-50%);
+}
+
+.notice[data-kind='error'] {
+  border-color: var(--color-down);
+  background: var(--color-down-soft);
+}
+
+.dismiss {
+  flex: none;
+  padding: 2px var(--space-2);
+  border: 0;
+  background: transparent;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--color-ink-muted);
+}

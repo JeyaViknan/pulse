@@ -1,0 +1,140 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.panelHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 28px;
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.panelTitle strong {
+  color: var(--color-ink);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: var(--space-3) var(--space-5);
+  margin: 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.statLabel {
+  font-size: var(--text-xs);
+  color: var(--color-ink-muted);
+}
+
+.statValue {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink);
+}
+
+.statValue[data-size='large'] {
+  font-size: var(--text-xl);
+}
+
+.statDetail {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-ink-faint);
+}
+
+.movement {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.movementGlyph {
+  font-size: 0.6em;
+}
+
+.movement[data-direction='down'] .movementGlyph {
+  color: var(--color-down);
+}
+
+.movement[data-direction='up'] .movementGlyph {
+  color: var(--color-up);
+}
+
+.quote {
+  margin: 0;
+  overflow: hidden;
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quote strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.hint {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-ink-faint);
+}
+
+.message {
+  margin: 0;
+  font-size: var(--text-md);
+  color: var(--color-ink-muted);
+}
+
+.ghostButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-rule-strong);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.ghostButton:hover {
+  border-color: var(--color-ink-muted);
+}
+
+kbd {
+  padding: 0 4px;
+  border: 1px solid var(--color-rule-strong);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--color-ink-muted);
+}
