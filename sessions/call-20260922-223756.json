@@ -1,0 +1,195 @@
+{
+  "name": "call-20260922-223756",
+  "title": "Call · 22 Sep 2026, 22:37:56",
+  "description": null,
+  "artefact_version": "pulse_v1",
+  "asr_model": "base.en",
+  "base_rate": 0.4989326596260071,
+  "tau": 0.1378032326889097,
+  "saved_at": "2026-09-22T22:37:56+05:30",
+  "turns": [
+    {
+      "t": 1,
+      "speaker": "dealer",
+      "text": "Hi, how are you",
+      "p": 0.4026543083644356,
+      "m": -0.09627835126157147,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 1213.5,
+        "model": 38.8,
+        "total": 1253.3
+      }
+    },
+    {
+      "t": 2,
+      "speaker": "customer",
+      "text": "Good sir, Whats this call about",
+      "p": 0.39922986354144435,
+      "m": -0.003424444822991257,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 249.8,
+        "model": 10.0,
+        "total": 260.9
+      }
+    },
+    {
+      "t": 3,
+      "speaker": "dealer",
+      "text": "I have made this call to make an amazing offer for you, would you like to listen",
+      "p": 0.47065732315299347,
+      "m": 0.07142745961154912,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 315.4,
+        "model": 8.0,
+        "total": 324.4
+      }
+    },
+    {
+      "t": 4,
+      "speaker": "customer",
+      "text": "Wow, that sounds good, go ahead",
+      "p": 0.519441424484288,
+      "m": 0.048784101331294516,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 220.2,
+        "model": 3.0,
+        "total": 224.4
+      }
+    },
+    {
+      "t": 5,
+      "speaker": "dealer",
+      "text": "Based on what you’re looking for, I can offer you this deal at ₹8.5 lakhs, including all the agreed terms and services.",
+      "p": 0.5228256196148061,
+      "m": 0.0033841951305181306,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 330.4,
+        "model": 68.7,
+        "total": 403.4
+      }
+    },
+    {
+      "t": 6,
+      "speaker": "customer",
+      "text": "₹8.5 lakhs? I was hoping for something a little lower.",
+      "p": 0.5191499818036464,
+      "m": -0.00367563781115976,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 236.9,
+        "model": 4.9,
+        "total": 242.6
+      }
+    },
+    {
+      "t": 7,
+      "speaker": "dealer",
+      "text": "I understand. I can try to work with you on the price. How about ₹8.3 lakhs? I think that would be a fair deal for both of us.",
+      "p": 0.5103502566830258,
+      "m": -0.00879972512062055,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 239.9,
+        "model": 4.0,
+        "total": 244.8
+      }
+    },
+    {
+      "t": 8,
+      "speaker": "customer",
+      "text": "That sounds reasonable. Does that include everything we discussed?",
+      "p": 0.5824985122721137,
+      "m": 0.07214825558908788,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 247.3,
+        "model": 6.6,
+        "total": 255.7
+      }
+    },
+    {
+      "t": 9,
+      "speaker": "dealer",
+      "text": "Yes, everything we agreed on is included. There won’t be any additional charges from my side.",
+      "p": 0.6358296012250986,
+      "m": 0.053331088952984884,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 226.5,
+        "model": 4.7,
+        "total": 232.3
+      }
+    },
+    {
+      "t": 10,
+      "speaker": "customer",
+      "text": "Alright, that works for me. Let’s close the deal.",
+      "p": 0.9055177968765338,
+      "m": 0.2696881956514352,
+      "turning_point": true,
+      "timings_ms": {
+        "asr": null,
+        "encode": 255.1,
+        "model": 34.3,
+        "total": 290.4
+      }
+    },
+    {
+      "t": 11,
+      "speaker": "dealer",
+      "text": "Perfect! Glad we could reach an agreement. I’ll prepare the paperwork and we can move forward.",
+      "p": 0.9098743259613254,
+      "m": 0.0043565290847916716,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 273.7,
+        "model": 5.5,
+        "total": 280.9
+      }
+    }
+  ],
+  "summary": {
+    "final_p": 0.9098743259613254,
+    "base_rate": 0.4989326596260071,
+    "total_movement": 0.41094166633531837,
+    "largest_movements": [
+      {
+        "t": 10,
+        "speaker": "customer",
+        "text": "Alright, that works for me. Let’s close the deal.",
+        "m": 0.2696881956514352
+      },
+      {
+        "t": 1,
+        "speaker": "dealer",
+        "text": "Hi, how are you",
+        "m": -0.09627835126157147
+      },
+      {
+        "t": 8,
+        "speaker": "customer",
+        "text": "That sounds reasonable. Does that include everything we discussed?",
+        "m": 0.07214825558908788
+      }
+    ],
+    "dealer_turn_share": 0.5454545454545454,
+    "dealer_word_share": 0.7191780821917808,
+    "turning_points": 1,
+    "turn_count": 11
+  }
+}
