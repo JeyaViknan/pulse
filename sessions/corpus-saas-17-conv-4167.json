@@ -1,0 +1,209 @@
+{
+  "name": "corpus-saas-17-conv-4167",
+  "title": "Corpus A saas-17-conv-4167 — closed",
+  "description": "Real Corpus A conversation from the val_select partition (recorded outcome: closed), entered as typed turns and scored by pulse_v1. Not live audio.",
+  "artefact_version": "pulse_v1",
+  "asr_model": "base.en",
+  "base_rate": 0.4989326596260071,
+  "tau": 0.1378032326889097,
+  "saved_at": "2026-09-22T22:06:42+05:30",
+  "turns": [
+    {
+      "t": 1,
+      "speaker": "customer",
+      "text": "Hey, so I've been looking into our current deployment stuff and it's kinda a mess... like, we need something better.",
+      "p": 0.5357073292486046,
+      "m": 0.03677466962259757,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 475.5,
+        "model": 2.9,
+        "total": 478.4
+      }
+    },
+    {
+      "t": 2,
+      "speaker": "customer",
+      "text": "Main pain piont is really getting things deployed seamlessly without all the headaches, you know?",
+      "p": 0.5999729882247349,
+      "m": 0.06426565897613024,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 9.6,
+        "model": 2.7,
+        "total": 12.4
+      }
+    },
+    {
+      "t": 3,
+      "speaker": "dealer",
+      "text": "Totally get that! Our DevOps Automation Suite is designed for exactly that. It helps streamline deployments and improves compliance too.",
+      "p": 0.540820708998109,
+      "m": -0.059152279226625915,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 7.9,
+        "model": 0.9,
+        "total": 8.9
+      }
+    },
+    {
+      "t": 4,
+      "speaker": "customer",
+      "text": "Hmm that sounds interesting. But like, how's it gonna fit with what we currently have?",
+      "p": 0.5405935628436757,
+      "m": -0.00022714615443331088,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.6,
+        "model": 0.8,
+        "total": 7.4
+      }
+    },
+    {
+      "t": 5,
+      "speaker": "dealer",
+      "text": "Great question! It integrates pretty smoothly with existing tools and platforms. Plus, we can customize if needed to align with your setup.",
+      "p": 0.6187100295578847,
+      "m": 0.07811646671420902,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.7,
+        "model": 0.8,
+        "total": 7.6
+      }
+    },
+    {
+      "t": 6,
+      "speaker": "customer",
+      "text": "Customization is good, but... gotta be honest, we're kinda low on budget. What's the pricing like?",
+      "p": 0.5391841385277222,
+      "m": -0.0795258910301625,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.8,
+        "model": 0.8,
+        "total": 7.6
+      }
+    },
+    {
+      "t": 7,
+      "speaker": "dealer",
+      "text": "I hear ya, budgeting is always tricky. It’s $500/month for the subscription. I know it’s an investment, but... it can really cut down deployment times.",
+      "p": 0.5784432451427045,
+      "m": 0.03925910661498233,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 8.9,
+        "model": 0.9,
+        "total": 10.0
+      }
+    },
+    {
+      "t": 8,
+      "speaker": "customer",
+      "text": "Oof that’s a bit steep for us. How can I convince the higher ups?",
+      "p": 0.7389172184600138,
+      "m": 0.16047397331730928,
+      "turning_point": true,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.5,
+        "model": 0.8,
+        "total": 7.4
+      }
+    },
+    {
+      "t": 9,
+      "speaker": "dealer",
+      "text": "You could talk about the efficiency gains. Like, faster deployments = faster time-to-market = more revenue, right? Also, think about reducing compliance risks.",
+      "p": 0.7605739459456075,
+      "m": 0.021656727485593663,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 7.0,
+        "model": 0.8,
+        "total": 7.8
+      }
+    },
+    {
+      "t": 10,
+      "speaker": "customer",
+      "text": "Yeah I guess... but the integration part sounds complicated. We’ve had issues before...",
+      "p": 0.7149787269131992,
+      "m": -0.04559521903240826,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.7,
+        "model": 0.8,
+        "total": 7.5
+      }
+    },
+    {
+      "t": 11,
+      "speaker": "dealer",
+      "text": "Understandable, but we provide support throughout the integration process. Plus, our team can help train your staff, so it’s not just thrown at you!",
+      "p": 0.8232059809127947,
+      "m": 0.10822725399959554,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.3,
+        "model": 0.8,
+        "total": 7.0
+      }
+    },
+    {
+      "t": 12,
+      "speaker": "customer",
+      "text": "Okay, this is all super helpful. I’ll bring it up in our next meeting and see what everyone thinks. Thanks!",
+      "p": 0.9027091559725816,
+      "m": 0.07950317505978688,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.1,
+        "model": 1.1,
+        "total": 7.2
+      }
+    }
+  ],
+  "summary": {
+    "final_p": 0.9027091559725816,
+    "base_rate": 0.4989326596260071,
+    "total_movement": 0.40377649634657453,
+    "largest_movements": [
+      {
+        "t": 8,
+        "speaker": "customer",
+        "text": "Oof that’s a bit steep for us. How can I convince the higher ups?",
+        "m": 0.16047397331730928
+      },
+      {
+        "t": 11,
+        "speaker": "dealer",
+        "text": "Understandable, but we provide support throughout the integration process. Plus, our team can help train your staff, so it’s not just thrown at you!",
+        "m": 0.10822725399959554
+      },
+      {
+        "t": 6,
+        "speaker": "customer",
+        "text": "Customization is good, but... gotta be honest, we're kinda low on budget. What's the pricing like?",
+        "m": -0.0795258910301625
+      }
+    ],
+    "dealer_turn_share": 0.4166666666666667,
+    "dealer_word_share": 0.5043859649122807,
+    "turning_points": 1,
+    "turn_count": 12
+  }
+}

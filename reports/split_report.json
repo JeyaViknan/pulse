@@ -1,0 +1,45 @@
+{
+  "seed": 20260922,
+  "grouped_by_company": true,
+  "stratified_by": [
+    "outcome",
+    "length band edges [11, 12, 13]"
+  ],
+  "deduplication": {
+    "input": 93672,
+    "dropped_conflicting_label_copies": 0,
+    "dropped_redundant_copies": 0,
+    "kept": 93672
+  },
+  "partitions": {
+    "train": {
+      "conversations": 74952,
+      "share": 0.8001537279016141,
+      "positive_rate": 0.4989326502294802,
+      "median_turns": 12.0,
+      "companies": 16
+    },
+    "val_select": {
+      "conversations": 4685,
+      "share": 0.050014945768212485,
+      "positive_rate": 0.4902881536819637,
+      "median_turns": 12.0,
+      "companies": 1
+    },
+    "val_fit": {
+      "conversations": 4666,
+      "share": 0.049812110342471606,
+      "positive_rate": 0.497428204029147,
+      "median_turns": 12.0,
+      "companies": 1
+    },
+    "test": {
+      "conversations": 9369,
+      "share": 0.10001921598770176,
+      "positive_rate": 0.5069911409969047,
+      "median_turns": 12.0,
+      "companies": 2
+    }
+  },
+  "companies_spanning_partitions": 0
+}

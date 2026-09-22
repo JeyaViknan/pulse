@@ -1,0 +1,168 @@
+{
+  "conversations": 93672,
+  "turns": 1133801,
+  "eda_01_class_balance": {
+    "positive_rate": 0.4992313604919293,
+    "rule": "PR-AUC primary if minority share < 0.3"
+  },
+  "eda_02_length": {
+    "n_turns": {
+      "p0": 5.0,
+      "p1": 9.0,
+      "p5": 10.0,
+      "p25": 11.0,
+      "p50": 12.0,
+      "p75": 13.0,
+      "p95": 15.0,
+      "p99": 16.0,
+      "p100": 22.0
+    },
+    "conversation_length_equals_parsed_turns": 0.855517123580152,
+    "outcome_rate_by_length": [
+      {
+        "n_turns": 5,
+        "count": 1,
+        "mean": 0.0
+      },
+      {
+        "n_turns": 8,
+        "count": 825,
+        "mean": 0.5381818181818182
+      },
+      {
+        "n_turns": 9,
+        "count": 822,
+        "mean": 0.5206812652068127
+      },
+      {
+        "n_turns": 10,
+        "count": 18093,
+        "mean": 0.49339523572652405
+      },
+      {
+        "n_turns": 11,
+        "count": 16121,
+        "mean": 0.5020780348613609
+      },
+      {
+        "n_turns": 12,
+        "count": 20918,
+        "mean": 0.5071230519170092
+      },
+      {
+        "n_turns": 13,
+        "count": 15814,
+        "mean": 0.49336031364613636
+      },
+      {
+        "n_turns": 14,
+        "count": 13676,
+        "mean": 0.5007312079555426
+      },
+      {
+        "n_turns": 15,
+        "count": 5995,
+        "mean": 0.4974145120934112
+      },
+      {
+        "n_turns": 16,
+        "count": 918,
+        "mean": 0.5305010893246187
+      },
+      {
+        "n_turns": 17,
+        "count": 170,
+        "mean": 0.3352941176470588
+      },
+      {
+        "n_turns": 18,
+        "count": 145,
+        "mean": 0.31724137931034485
+      },
+      {
+        "n_turns": 19,
+        "count": 126,
+        "mean": 0.23015873015873015
+      },
+      {
+        "n_turns": 20,
+        "count": 41,
+        "mean": 0.24390243902439024
+      },
+      {
+        "n_turns": 21,
+        "count": 6,
+        "mean": 0.3333333333333333
+      },
+      {
+        "n_turns": 22,
+        "count": 1,
+        "mean": 0.0
+      }
+    ],
+    "words_per_turn": {
+      "p0": 1.0,
+      "p1": 8.0,
+      "p5": 11.0,
+      "p25": 15.0,
+      "p50": 18.0,
+      "p75": 21.0,
+      "p95": 27.0,
+      "p99": 34.0,
+      "p100": 73.0
+    }
+  },
+  "eda_03_duplicates": {
+    "unique_conversations": 93672,
+    "duplicated_fingerprints": 0,
+    "redundant_copies": 0,
+    "fingerprints_with_conflicting_outcomes": 0,
+    "rule": "exact duplicates (normalised case and whitespace) keep one copy; conflicting-label groups are dropped"
+  },
+  "eda_04_company": {
+    "companies": 20,
+    "conversations_per_company": {
+      "p0": 4644.0,
+      "p1": 4645.14,
+      "p5": 4649.7,
+      "p25": 4674.25,
+      "p50": 4684.0,
+      "p75": 4697.25,
+      "p95": 4714.1,
+      "p99": 4715.62,
+      "p100": 4716.0
+    },
+    "largest_company_share": 0.050345887778631825,
+    "company_outcome_rate": {
+      "p0": 0.48392591015541836,
+      "p1": 0.4850461449867031,
+      "p5": 0.48952708431184216,
+      "p25": 0.4957956009134802,
+      "p50": 0.5003721943496733,
+      "p75": 0.5037718117883841,
+      "p95": 0.5102129833428439,
+      "p99": 0.5102162876008804,
+      "p100": 0.5102171136653896
+    },
+    "rule": "grouped split if median conversations per company \u2265 10"
+  },
+  "eda_06_alternation": {
+    "adjacent_pairs": 1040129,
+    "same_speaker_share": 0.019944641481970025,
+    "first_speaker_counts": {
+      "customer": 88454,
+      "dealer": 5218
+    },
+    "rule": "F8 retained if same-speaker share \u2265 0.01"
+  },
+  "decisions": {
+    "primary_metric": "auroc",
+    "length_band_edges": [
+      11,
+      12,
+      13
+    ],
+    "grouped_split": true,
+    "f8_retained": true
+  }
+}

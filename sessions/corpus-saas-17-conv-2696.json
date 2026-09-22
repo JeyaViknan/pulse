@@ -1,0 +1,181 @@
+{
+  "name": "corpus-saas-17-conv-2696",
+  "title": "Corpus A saas-17-conv-2696 — recovery",
+  "description": "Real Corpus A conversation from the val_select partition (recorded outcome: closed), entered as typed turns and scored by pulse_v1. Not live audio.",
+  "artefact_version": "pulse_v1",
+  "asr_model": "base.en",
+  "base_rate": 0.4989326596260071,
+  "tau": 0.1378032326889097,
+  "saved_at": "2026-09-22T22:06:52+05:30",
+  "turns": [
+    {
+      "t": 1,
+      "speaker": "customer",
+      "text": "Hey, so I’ve been looking into options to help with our deployment times. It’s kinda getting outta hand.",
+      "p": 0.4964864499664098,
+      "m": -0.002446209659597298,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 188.2,
+        "model": 2.3,
+        "total": 190.7
+      }
+    },
+    {
+      "t": 2,
+      "speaker": "customer",
+      "text": "Also, we have some compliance stuff that’s just like... ugh.",
+      "p": 0.5414350833636239,
+      "m": 0.04494863339721411,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 8.9,
+        "model": 1.3,
+        "total": 10.2
+      }
+    },
+    {
+      "t": 3,
+      "speaker": "dealer",
+      "text": "Totally get it, Jessica! It sounds like a lot to manage. Our DevOps Automation Suite really aims to help with that.",
+      "p": 0.4813394985529407,
+      "m": -0.06009558481068317,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 11.4,
+        "model": 0.8,
+        "total": 12.2
+      }
+    },
+    {
+      "t": 4,
+      "speaker": "dealer",
+      "text": "It focuses on CI/CD, automated testing, and all that good stuff that can speed things up.",
+      "p": 0.4932928403463416,
+      "m": 0.011953341793400851,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.8,
+        "model": 0.8,
+        "total": 7.6
+      }
+    },
+    {
+      "t": 5,
+      "speaker": "customer",
+      "text": "CI/CD... is that, like, easy to implement? It feels complex.",
+      "p": 0.5020037072007058,
+      "m": 0.008710866854364174,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.1,
+        "model": 0.8,
+        "total": 6.9
+      }
+    },
+    {
+      "t": 6,
+      "speaker": "dealer",
+      "text": "Yeah, I get that. It *can* seem daunting, but we have a pretty straightforward implementation process.",
+      "p": 0.3009197594881883,
+      "m": -0.20108394771251747,
+      "turning_point": true,
+      "timings_ms": {
+        "asr": null,
+        "encode": 5.5,
+        "model": 0.8,
+        "total": 6.3
+      }
+    },
+    {
+      "t": 7,
+      "speaker": "dealer",
+      "text": "Plus, our team will help you out every step of the way to ensure it's smooth.",
+      "p": 0.595485504622696,
+      "m": 0.29456574513450773,
+      "turning_point": true,
+      "timings_ms": {
+        "asr": null,
+        "encode": 5.2,
+        "model": 0.8,
+        "total": 6.0
+      }
+    },
+    {
+      "t": 8,
+      "speaker": "customer",
+      "text": "Hmm, okay. But like, is it gonna be worth the $500/month? Seems a bit steep.",
+      "p": 0.5832299287193066,
+      "m": -0.012255575903389437,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 5.3,
+        "model": 0.8,
+        "total": 6.0
+      }
+    },
+    {
+      "t": 9,
+      "speaker": "dealer",
+      "text": "I understand the concern! But think about the time saved and how much faster your team can deliver projects.",
+      "p": 0.66628641889905,
+      "m": 0.08305649017974348,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 5.2,
+        "model": 0.8,
+        "total": 5.9
+      }
+    },
+    {
+      "t": 10,
+      "speaker": "customer",
+      "text": "Yeah, I mean time is money or whatever... just worried about the initial investment.",
+      "p": 0.6533171922891337,
+      "m": -0.012969226609916396,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 5.1,
+        "model": 0.8,
+        "total": 5.9
+      }
+    }
+  ],
+  "summary": {
+    "final_p": 0.6533171922891337,
+    "base_rate": 0.4989326596260071,
+    "total_movement": 0.15438453266312657,
+    "largest_movements": [
+      {
+        "t": 7,
+        "speaker": "dealer",
+        "text": "Plus, our team will help you out every step of the way to ensure it's smooth.",
+        "m": 0.29456574513450773
+      },
+      {
+        "t": 6,
+        "speaker": "dealer",
+        "text": "Yeah, I get that. It *can* seem daunting, but we have a pretty straightforward implementation process.",
+        "m": -0.20108394771251747
+      },
+      {
+        "t": 9,
+        "speaker": "dealer",
+        "text": "I understand the concern! But think about the time saved and how much faster your team can deliver projects.",
+        "m": 0.08305649017974348
+      }
+    ],
+    "dealer_turn_share": 0.5,
+    "dealer_word_share": 0.5632911392405063,
+    "turning_points": 2,
+    "turn_count": 10
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "name": "corpus-saas-17-conv-4537",
+  "title": "Corpus A saas-17-conv-4537 — lost",
+  "description": "Real Corpus A conversation from the val_select partition (recorded outcome: not closed), entered as typed turns and scored by pulse_v1. Not live audio.",
+  "artefact_version": "pulse_v1",
+  "asr_model": "base.en",
+  "base_rate": 0.4989326596260071,
+  "tau": 0.1378032326889097,
+  "saved_at": "2026-09-22T22:06:47+05:30",
+  "turns": [
+    {
+      "t": 1,
+      "speaker": "customer",
+      "text": "Hey, so I was looking into the DevOps Automation Suite. I have some questions about deployment times and stuff.",
+      "p": 0.4380976531254988,
+      "m": -0.06083500650050827,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 119.0,
+        "model": 9.5,
+        "total": 128.6
+      }
+    },
+    {
+      "t": 2,
+      "speaker": "dealer",
+      "text": "Sure, I'd love to help with that! Our suite can really help with speeding up those lengthy deploys.",
+      "p": 0.38273915060524444,
+      "m": -0.05535850252025437,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 8.1,
+        "model": 1.4,
+        "total": 9.6
+      }
+    },
+    {
+      "t": 3,
+      "speaker": "customer",
+      "text": "Yeah, we struggle a lot with that. Like, it just takes forever and it's gteting kinda frustrating.",
+      "p": 0.38150804217703355,
+      "m": -0.001231108428210892,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 9.9,
+        "model": 0.8,
+        "total": 10.8
+      }
+    },
+    {
+      "t": 4,
+      "speaker": "dealer",
+      "text": "Totally get that. We’ve seen it help teams cut deployment times significantly. It's all about streamlining.",
+      "p": 0.3784009098525758,
+      "m": -0.003107132324457751,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 7.3,
+        "model": 0.9,
+        "total": 8.2
+      }
+    },
+    {
+      "t": 5,
+      "speaker": "customer",
+      "text": "Sounds good but... I’m kinda worried about the cost. $500/month is a bit steep for us.",
+      "p": 0.411876689096847,
+      "m": 0.0334757792442712,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 7.1,
+        "model": 0.8,
+        "total": 8.0
+      }
+    },
+    {
+      "t": 6,
+      "speaker": "dealer",
+      "text": "I understand, that's a common concern. But think about the time saved! Like, you could get those resources back.",
+      "p": 0.41305199071205834,
+      "m": 0.0011753016152113438,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.7,
+        "model": 0.8,
+        "total": 7.5
+      }
+    },
+    {
+      "t": 7,
+      "speaker": "customer",
+      "text": "Hmm, yeah, fair point. Still, integrating it sounds complicated, right?",
+      "p": 0.4659161144600854,
+      "m": 0.05286412374802707,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 7.4,
+        "model": 0.9,
+        "total": 8.3
+      }
+    },
+    {
+      "t": 8,
+      "speaker": "dealer",
+      "text": "It can seem that way, but we provide a lot of support during the onboarding process.",
+      "p": 0.4642244874202972,
+      "m": -0.0016916270397882016,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.5,
+        "model": 0.8,
+        "total": 7.3
+      }
+    },
+    {
+      "t": 9,
+      "speaker": "customer",
+      "text": "Okay, but what if we run into issues later? Compliance and all that?",
+      "p": 0.43402701510494973,
+      "m": -0.030197472315347473,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 8.2,
+        "model": 1.0,
+        "total": 9.3
+      }
+    },
+    {
+      "t": 10,
+      "speaker": "dealer",
+      "text": "Our platform helps ensure compliance too, so you won't have to stress about that.",
+      "p": 0.5709307311066545,
+      "m": 0.13690371600170476,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.8,
+        "model": 0.9,
+        "total": 7.7
+      }
+    },
+    {
+      "t": 11,
+      "speaker": "customer",
+      "text": "I guess that’s a plus. But, like, we’re already stretched thin, adding something new feels risky.",
+      "p": 0.16324249558090395,
+      "m": -0.4076882355257505,
+      "turning_point": true,
+      "timings_ms": {
+        "asr": null,
+        "encode": 8.0,
+        "model": 0.8,
+        "total": 8.8
+      }
+    },
+    {
+      "t": 12,
+      "speaker": "dealer",
+      "text": "Totally get the hesitation. It's a big change, but the payoff can be worth it in the long run.",
+      "p": 0.07289523270088576,
+      "m": -0.0903472628800182,
+      "turning_point": false,
+      "timings_ms": {
+        "asr": null,
+        "encode": 6.7,
+        "model": 0.9,
+        "total": 7.6
+      }
+    }
+  ],
+  "summary": {
+    "final_p": 0.07289523270088576,
+    "base_rate": 0.4989326596260071,
+    "total_movement": -0.4260374269251213,
+    "largest_movements": [
+      {
+        "t": 11,
+        "speaker": "customer",
+        "text": "I guess that’s a plus. But, like, we’re already stretched thin, adding something new feels risky.",
+        "m": -0.4076882355257505
+      },
+      {
+        "t": 10,
+        "speaker": "dealer",
+        "text": "Our platform helps ensure compliance too, so you won't have to stress about that.",
+        "m": 0.13690371600170476
+      },
+      {
+        "t": 12,
+        "speaker": "dealer",
+        "text": "Totally get the hesitation. It's a big change, but the payoff can be worth it in the long run.",
+        "m": -0.0903472628800182
+      }
+    ],
+    "dealer_turn_share": 0.5,
+    "dealer_word_share": 0.5257731958762887,
+    "turning_points": 1,
+    "turn_count": 12
+  }
+}

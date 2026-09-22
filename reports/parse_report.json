@@ -1,0 +1,22 @@
+{
+  "source_rows": 100000,
+  "parsed_conversations": 93672,
+  "excluded_conversations": 6328,
+  "exclusions_by_reason": {
+    "multi_session_scene_break": 6324,
+    "unknown_speaker": 4
+  },
+  "turns": 1133801,
+  "speaker_labels": {
+    "customer": 608902,
+    "sales_rep": 556577,
+    "system": 6324,
+    "student": 2,
+    "customers": 1,
+    "sales_repo": 1
+  },
+  "speaker_mapping": {
+    "sales_rep": "dealer",
+    "customer": "customer"
+  }
+}
