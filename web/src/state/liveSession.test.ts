@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { Estimate, SessionInfo } from '../types/pulse'
 import {
   canEndCall,
+  canRemoveLastTurn,
   canStartTurn,
   initialLiveState,
   liveReducer,
@@ -157,6 +158,21 @@ describe('live session — counterfactual replay', () => {
     const listening = liveReducer(replaying, { type: 'recording-started', speaker: 'dealer' })
     expect(listening.phase).toBe('listening')
     expect(listening.counterfactual).toBeNull()
+  })
+})
+
+describe('live session — delete last turn', () => {
+  it('is offered only between turns', () => {
+    expect(canRemoveLastTurn(twoTurns)).toBe(true)
+    expect(canRemoveLastTurn(started)).toBe(false)
+    expect(canRemoveLastTurn(liveReducer(twoTurns, { type: 'recording-started', speaker: 'dealer' }))).toBe(false)
+  })
+
+  it('drops the removed turn and its estimate, for the current session only', () => {
+    const removed = liveReducer(twoTurns, { type: 'turn-removed', sessionId: 's1', turnCount: 1 })
+    expect(removed.turns.map((turn) => turn.t)).toEqual([1])
+    expect(removed.estimates.map((estimate) => estimate.t)).toEqual([1])
+    expect(liveReducer(twoTurns, { type: 'turn-removed', sessionId: 'old', turnCount: 1 })).toBe(twoTurns)
   })
 })
 

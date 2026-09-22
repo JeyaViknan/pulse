@@ -34,16 +34,16 @@ export interface LiveSession {
 }
 
 /**
- * Everything the interface needs from the backend.
- *
- * `MockPulseService` implements this today. A `PulseApiService` speaking the contract in
- * `types/contract.ts` replaces it without any change to components.
+ * Everything the interface needs from the backend. Implemented by `PulseApiService`, which
+ * speaks the contract in `types/contract.ts` to the local FastAPI server.
  */
 export interface PulseService {
   health(): Promise<Health>
   startSession(): Promise<LiveSession>
   counterfactual(sessionId: string, maskedTurn: number): Promise<Counterfactual>
   summary(sessionId: string): Promise<Summary>
+  /** Removes the most recent turn (wrong button pressed); resolves with the remaining turn count. */
+  deleteLastTurn(sessionId: string): Promise<number>
   saveSession(sessionId: string): Promise<SavedSessionRef>
   listSessions(): Promise<SavedSessionRef[]>
   loadSession(name: string): Promise<SavedSession>

@@ -1,6 +1,6 @@
 /**
  * Conversion between the backend wire contract and interface domain types.
- * A `PulseApiService` uses these so that components never see snake_case payloads.
+ * `PulseApiService` uses these so that components never see snake_case payloads.
  */
 import type {
   WireClientMessage,
@@ -103,8 +103,10 @@ export function fromWireSavedSession(session: WireSavedSession): SavedSession {
     title: session.title,
     description: session.description,
     artefactVersion: session.artefact_version,
+    asrModel: session.asr_model ?? null,
     baseRate: session.base_rate,
     tau: session.tau,
+    savedAt: session.saved_at,
     turns: session.turns.map((turn) => ({ t: turn.t, speaker: turn.speaker, text: turn.text })),
     estimates: session.turns.map((turn) => ({
       t: turn.t,
@@ -120,7 +122,10 @@ export function fromWireSavedSession(session: WireSavedSession): SavedSession {
 export function fromWireHealth(health: WireHealth): Health {
   return {
     status: health.status,
-    modelKind: health.model_kind,
     artefactVersion: health.artefact_version,
+    encoder: health.encoder,
+    asrModel: health.asr_model,
+    baseRate: health.base_rate,
+    tau: health.tau,
   }
 }

@@ -22,8 +22,7 @@ export interface WireTimings {
  * Client → server.
  *
  * `turn_audio` is sent as this JSON envelope immediately followed by one binary frame
- * containing the recorded audio (webm or wav, as named by `mime_type`).
- * This framing is a proposal to be confirmed when the backend is implemented.
+ * containing the recorded audio (WebM/Opus, MP4/AAC or WAV, as named by `mime_type`).
  */
 export type WireClientMessage =
   | { type: 'turn_audio'; speaker: WireSpeaker; mime_type: string }
@@ -53,6 +52,7 @@ export const ROUTES = {
   counterfactual: (id: string) => `/session/${encodeURIComponent(id)}/counterfactual`,
   summary: (id: string) => `/session/${encodeURIComponent(id)}/summary`,
   save: (id: string) => `/session/${encodeURIComponent(id)}/save`,
+  lastTurn: (id: string) => `/session/${encodeURIComponent(id)}/turns/last`,
   sessions: () => '/sessions',
   session: (name: string) => `/sessions/${encodeURIComponent(name)}`,
   health: () => '/health',
@@ -107,6 +107,11 @@ export interface WireSaveResponse {
 /** GET /sessions — one entry */
 export type WireSessionListItem = WireSaveResponse
 
+/** DELETE /session/{id}/turns/last — delete-last-turn (SPEC.md §9) */
+export interface WireDeleteTurnResponse {
+  turn_count: number
+}
+
 export interface WireSavedTurn {
   t: number
   speaker: WireSpeaker
@@ -120,16 +125,18 @@ export interface WireSavedTurn {
 /**
  * GET /sessions/{name}
  *
- * `summary` is stored with the session so that Replay mode needs no further request.
- * This field extends SPEC.md §5.5 and must be written by the backend when saving.
+ * `summary` is stored with the session so that Replay mode needs no further request
+ * (an extension of SPEC.md §5.5).
  */
 export interface WireSavedSession {
   name: string
   title: string
   description: string | null
   artefact_version: string
+  asr_model?: string | null
   base_rate: number
   tau: number
+  saved_at: string
   turns: WireSavedTurn[]
   summary: WireSummary
 }
@@ -137,6 +144,14 @@ export interface WireSavedSession {
 /** GET /health */
 export interface WireHealth {
   status: 'ok' | 'degraded'
-  model_kind: 'mock' | 'trained'
   artefact_version: string
+  encoder: string
+  asr_model: string | null
+  base_rate: number
+  tau: number
+}
+
+/** Error body returned by the REST endpoints. */
+export interface WireErrorBody {
+  detail?: string
 }

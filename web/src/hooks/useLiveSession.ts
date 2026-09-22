@@ -3,6 +3,7 @@ import type { LiveSession, PulseService } from '../services/pulseService'
 import type { Recorder } from '../services/recorder'
 import {
   canEndCall,
+  canRemoveLastTurn,
   canStartTurn,
   initialLiveState,
   liveReducer,
@@ -10,6 +11,9 @@ import {
   type LiveState,
 } from '../state/liveSession'
 import type { SavedSessionRef, Speaker } from '../types/pulse'
+
+/** A press shorter than this is treated as accidental and discarded without a request. */
+const MIN_HOLD_MS = 300
 
 export interface LiveSessionControls {
   state: LiveState
@@ -22,6 +26,7 @@ export interface LiveSessionControls {
   endCall: () => void
   newCall: () => void
   saveSession: () => Promise<SavedSessionRef | null>
+  removeLastTurn: () => void
   dismissNotice: () => void
 }
 
@@ -34,6 +39,19 @@ export function useLiveSession(service: PulseService, recorder: Recorder): LiveS
   const [state, dispatch] = useReducer(liveReducer, initialLiveState)
   const [generation, setGeneration] = useState(0)
   const sessionRef = useRef<LiveSession | null>(null)
+  const pressedAt = useRef(0)
+
+  // Ask for the microphone as soon as the interface loads, not on the first press, so the
+  // permission prompt never interrupts a turn.
+  useEffect(() => {
+    recorder.prepare().catch((error: unknown) => {
+      dispatch({
+        type: 'notice',
+        kind: 'error',
+        message: `Microphone unavailable (${messageOf(error).replace(/\.$/, '')}). Typed turns still work.`,
+      })
+    })
+  }, [recorder])
 
   useEffect(() => {
     let cancelled = false
@@ -67,11 +85,16 @@ export function useLiveSession(service: PulseService, recorder: Recorder): LiveS
   const startRecording = useCallback(
     (speaker: Speaker) => {
       if (!canStartTurn(state)) return
+      pressedAt.current = performance.now()
       dispatch({ type: 'recording-started', speaker })
       recorder.start().catch((error: unknown) => {
         recorder.cancel()
         dispatch({ type: 'recording-cancelled' })
-        dispatch({ type: 'notice', kind: 'error', message: `Microphone unavailable: ${messageOf(error)} Type the turn instead.` })
+        dispatch({
+          type: 'notice',
+          kind: 'error',
+          message: `Microphone unavailable (${messageOf(error).replace(/\.$/, '')}). Type the turn instead.`,
+        })
       })
     },
     [state, recorder],
@@ -80,6 +103,12 @@ export function useLiveSession(service: PulseService, recorder: Recorder): LiveS
   const stopRecording = useCallback(
     (speaker: Speaker) => {
       if (state.phase !== 'listening' || state.recordingSpeaker !== speaker) return
+      if (performance.now() - pressedAt.current < MIN_HOLD_MS) {
+        recorder.cancel()
+        dispatch({ type: 'recording-cancelled' })
+        dispatch({ type: 'notice', kind: 'info', message: 'Hold the key for the whole time you are speaking.' })
+        return
+      }
       dispatch({ type: 'recording-stopped' })
       recorder.stop().then(
         (audio) => sessionRef.current?.sendAudio(speaker, audio),
@@ -149,6 +178,16 @@ export function useLiveSession(service: PulseService, recorder: Recorder): LiveS
     }
   }, [state.session, service])
 
+  const removeLastTurn = useCallback(() => {
+    if (!canRemoveLastTurn(state) || !state.session) return
+    const sessionId = state.session.id
+    service.deleteLastTurn(sessionId).then(
+      (turnCount) => dispatch({ type: 'turn-removed', sessionId, turnCount }),
+      (error: unknown) =>
+        dispatch({ type: 'notice', kind: 'error', message: `Could not remove the turn: ${messageOf(error)}` }),
+    )
+  }, [state, service])
+
   const dismissNotice = useCallback(() => dispatch({ type: 'notice-dismissed' }), [])
 
   return {
@@ -161,6 +200,7 @@ export function useLiveSession(service: PulseService, recorder: Recorder): LiveS
     endCall,
     newCall,
     saveSession,
+    removeLastTurn,
     dismissNotice,
   }
 }

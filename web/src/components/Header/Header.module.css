@@ -35,16 +35,22 @@
   gap: var(--space-4);
 }
 
-.mockBadge {
+.artefact {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--color-kraft);
+  cursor: help;
+}
+
+.offline {
   padding: 2px var(--space-2);
-  border: 1px dashed var(--color-kraft);
+  border: 1px solid var(--color-kraft);
   border-radius: var(--radius);
   font-size: var(--text-2xs);
   font-weight: 700;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-kraft);
-  cursor: help;
+  color: var(--color-kraft-light);
 }
 
 .modes {

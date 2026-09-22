@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { WireSavedSession } from '../types/contract'
 import {
   fromWireCounterfactual,
+  fromWireHealth,
   fromWireSavedSession,
   fromWireServerMessage,
   fromWireSession,
@@ -71,8 +72,10 @@ describe('contract mapping', () => {
       title: 'Call',
       description: null,
       artefact_version: 'pulse_v1',
+      asr_model: 'base.en',
       base_rate: 0.4,
       tau: 0.2,
+      saved_at: '2026-09-22T15:40:00+05:30',
       turns: [
         {
           t: 1,
@@ -99,5 +102,26 @@ describe('contract mapping', () => {
     expect(session.turns).toEqual([{ t: 1, speaker: 'dealer', text: 'Hello' }])
     expect(session.estimates[0]).toMatchObject({ t: 1, probability: 0.4, turningPoint: false })
     expect(session.summary).toMatchObject({ finalProbability: 0.4, turnCount: 1, turningPointCount: 0 })
+    expect(session).toMatchObject({ asrModel: 'base.en', savedAt: '2026-09-22T15:40:00+05:30' })
+  })
+
+  it('maps health', () => {
+    expect(
+      fromWireHealth({
+        status: 'ok',
+        artefact_version: 'pulse_v1',
+        encoder: 'sentence-transformers/all-MiniLM-L6-v2',
+        asr_model: 'base.en',
+        base_rate: 0.499,
+        tau: 0.12,
+      }),
+    ).toEqual({
+      status: 'ok',
+      artefactVersion: 'pulse_v1',
+      encoder: 'sentence-transformers/all-MiniLM-L6-v2',
+      asrModel: 'base.en',
+      baseRate: 0.499,
+      tau: 0.12,
+    })
   })
 })

@@ -3,6 +3,7 @@ import { AppShell } from './components/AppShell/AppShell'
 import { CallEndedBar } from './components/CallEndedBar/CallEndedBar'
 import { CounterfactualPanel } from './components/CounterfactualPanel/CounterfactualPanel'
 import { Header, type AppMode } from './components/Header/Header'
+import { LatencyOverlay } from './components/LatencyOverlay/LatencyOverlay'
 import { MomentumReadout } from './components/MomentumReadout/MomentumReadout'
 import { NoticeBar } from './components/NoticeBar/NoticeBar'
 import { ProbabilityChart } from './components/ProbabilityChart/ProbabilityChart'
@@ -17,7 +18,7 @@ import { useLiveSession } from './hooks/useLiveSession'
 import { usePlayback } from './hooks/usePlayback'
 import { SPEAKER_LABEL } from './lib/speakers'
 import { createRuntime } from './services'
-import { canEndCall, canStartTurn, isProcessing, type LiveState } from './state/liveSession'
+import { canEndCall, canRemoveLastTurn, canStartTurn, isProcessing, type LiveState } from './state/liveSession'
 import type { Health } from './types/pulse'
 import styles from './App.module.css'
 
@@ -81,6 +82,8 @@ export default function App() {
   const [mode, setMode] = useState<AppMode>('live')
   const [highlightTurn, setHighlightTurn] = useState<number | null>(null)
   const [health, setHealth] = useState<Health | null>(null)
+  const [serverReachable, setServerReachable] = useState(true)
+  const [showLatency, setShowLatency] = useState(false)
 
   const { state } = live
   const isLive = mode === 'live'
@@ -90,16 +93,32 @@ export default function App() {
     let active = true
     runtime.service.health().then(
       (result) => {
-        if (active) setHealth(result)
+        if (!active) return
+        setHealth(result)
+        setServerReachable(true)
       },
       () => {
-        if (active) setHealth(null)
+        if (!active) return
+        setHealth(null)
+        setServerReachable(false)
       },
     )
     return () => {
       active = false
     }
-  }, [runtime.service])
+  }, [runtime.service, state.session?.id])
+
+  // P9: the developer latency overlay is hidden by default and toggled with L.
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key.toLowerCase() !== 'l' || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return
+      const target = event.target as HTMLElement | null
+      if (target && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))) return
+      setShowLatency((value) => !value)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
 
   useKeyboardPushToTalk({
     enabled: isLive && !state.callEnded,
@@ -202,7 +221,8 @@ export default function App() {
       summaryActive={isLive ? state.phase === 'summary' : playbackAtEnd}
       summaryHint={isLive ? 'End the call and show the summary' : 'Jump to the end of the session'}
       onSummary={isLive ? live.endCall : playback.seekToEnd}
-      isMockModel={health?.modelKind === 'mock'}
+      health={health}
+      serverReachable={serverReachable}
     />
   )
 
@@ -233,6 +253,15 @@ export default function App() {
         />
         <div className={styles.secondaryRow}>
           <TypedTurnInput disabled={!canStartTurn(state)} onSubmit={live.submitText} />
+          <button
+            type="button"
+            className={styles.undo}
+            disabled={!canRemoveLastTurn(state)}
+            onClick={live.removeLastTurn}
+            title="Remove the most recent turn, for example after pressing the wrong key"
+          >
+            Undo last turn
+          </button>
           <button type="button" className={styles.endCall} disabled={!canEndCall(state)} onClick={live.endCall}>
             End call
           </button>
@@ -242,6 +271,7 @@ export default function App() {
   }
 
   return (
+    <>
     <AppShell
       header={header}
       transcript={
@@ -273,5 +303,7 @@ export default function App() {
       detail={detail}
       footer={footer}
     />
+    {showLatency && <LatencyOverlay estimates={estimates} onClose={() => setShowLatency(false)} />}
+    </>
   )
 }

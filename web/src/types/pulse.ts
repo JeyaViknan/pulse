@@ -108,16 +108,22 @@ export interface SavedSession {
   title: string
   description: string | null
   artefactVersion: string
+  /** Whisper model used for spoken turns, when known. */
+  asrModel: string | null
   baseRate: number
   tau: number
+  savedAt: string
   turns: Turn[]
   estimates: Estimate[]
   summary: Summary
 }
 
-/** Backend health. `modelKind` tells the interface whether estimates come from the trained artefact. */
+/** Backend health: which artefact, encoder and speech model are loaded. `degraded` means no speech recognition. */
 export interface Health {
   status: 'ok' | 'degraded'
-  modelKind: 'mock' | 'trained'
   artefactVersion: string
+  encoder: string
+  asrModel: string | null
+  baseRate: number
+  tau: number
 }

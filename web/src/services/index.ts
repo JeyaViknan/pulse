@@ -1,6 +1,6 @@
-import { MockPulseService } from './mock/mockPulseService'
+import { PulseApiService } from './apiService'
 import type { PulseService } from './pulseService'
-import { SimulatedRecorder, type Recorder } from './recorder'
+import { MediaRecorderRecorder, type Recorder } from './recorder'
 
 export interface PulseRuntime {
   service: PulseService
@@ -8,12 +8,9 @@ export interface PulseRuntime {
 }
 
 /**
- * Chooses the backend the interface talks to.
- *
- * Only the in-browser mock exists today. When the FastAPI backend is available, return a
- * `PulseApiService` (built on `contractMapping.ts`) and a `MediaRecorder`-backed recorder
- * here; no component needs to change.
+ * The backend the interface talks to: the local Pulse server on the page's own origin
+ * (the server serves the built interface; in development Vite proxies to it).
  */
 export function createRuntime(): PulseRuntime {
-  return { service: new MockPulseService(), recorder: new SimulatedRecorder() }
+  return { service: new PulseApiService(), recorder: new MediaRecorderRecorder() }
 }

@@ -68,6 +68,7 @@ export type LiveAction =
   | { type: 'text-submitted'; speaker: Speaker }
   | { type: 'server-event'; event: SessionEvent }
   | { type: 'turn-failed'; message: string }
+  | { type: 'turn-removed'; sessionId: string; turnCount: number }
   | { type: 'counterfactual-requested'; turn: number }
   | { type: 'counterfactual-loaded'; sessionId: string; result: Counterfactual }
   | { type: 'counterfactual-failed'; sessionId: string; turn: number; message: string }
@@ -89,6 +90,11 @@ export function isProcessing(state: LiveState): boolean {
 
 export function canEndCall(state: LiveState): boolean {
   return canStartTurn(state) && state.estimates.length > 0
+}
+
+/** Delete-last-turn is offered between turns, never while one is in flight (SPEC.md §9). */
+export function canRemoveLastTurn(state: LiveState): boolean {
+  return state.session !== null && !state.callEnded && state.phase === 'idle' && state.estimates.length > 0
 }
 
 /** What selecting a turn should do: open its counterfactual, close it (second click), or nothing. */
@@ -162,6 +168,15 @@ export function liveReducer(state: LiveState, action: LiveAction): LiveState {
     case 'turn-failed': {
       const next = isProcessing(state) ? { ...state, phase: 'idle' as const, pendingSpeaker: null } : state
       return withNotice(next, 'error', action.message)
+    }
+
+    case 'turn-removed': {
+      if (state.session?.id !== action.sessionId) return state
+      return {
+        ...state,
+        turns: state.turns.filter((turn) => turn.t <= action.turnCount),
+        estimates: state.estimates.filter((estimate) => estimate.t <= action.turnCount),
+      }
     }
 
     case 'counterfactual-requested':
